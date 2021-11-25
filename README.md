@@ -44,6 +44,7 @@
 
 **重要知识点详解：**
 
+- [为什么 Java 中只有值传递？](docs/java/basis/why-there-only-value-passing-in-java.md)
 - [什么是反射机制？反射机制的应用场景有哪些？](docs/java/basis/反射机制详解.md)
 - [代理模式详解：静态代理+JDK/CGLIB 动态代理实战](docs/java/basis/代理模式详解.md)
 - [常见的 IO 模型有哪些？Java 中的 BIO、NIO、AIO 有啥区别?](docs/java/basis/java基础知识总结)
@@ -51,7 +52,7 @@
 ### 集合
 
 1. **[Java 集合常见问题总结](docs/java/collection/java集合框架基础知识&面试题总结.md)** (必看 :+1:)
-2. [Java 容器使用注意事项总结](docs/java/collection/java集合使用注意事项总结.md)
+2. [Java 容器使用注意事项总结](docs/java/collection/java集合使用注意事项.md)
 3. **源码分析** ：[ArrayList 源码+扩容机制分析](docs/java/collection/arraylist-source-code.md)  、[HashMap(JDK1.8)源码+底层数据结构分析](docs/java/collection/hashmap-source-code.md) 、[ConcurrentHashMap 源码+底层数据结构分析](docs/java/collection/concurrent-hash-map-source-code.md)
 
 ### 并发
@@ -99,14 +100,14 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 
 ### 操作系统
 
-1. [操作系统常见问题总结！](docs/cs-basics/operating-system/basis.md)
-2. [后端程序员必备的 Linux 基础知识总结](docs/cs-basics/operating-system/linux.md)
-3. [Shell 编程入门](docs/cs-basics/operating-system/Shell.md)
+1. [操作系统常见问题总结！](docs/cs-basics/operating-system/操作系统常见面试题&知识点总结.md)
+2. [后端程序员必备的 Linux 基础知识总结](docs/cs-basics/operating-system/linux-intro.md)
+3. [Shell 编程入门](docs/cs-basics/operating-system/shell-intro.md)
 
 ### 网络
 
-1. [计算机网络常见面试题](docs/cs-basics/network/计算机网络.md)
-2. [计算机网络基础知识总结](docs/cs-basics/network/计算机网络知识总结.md)
+1. [计算机网络常见面试题](docs/cs-basics/network/计算机网络常见面试题.md)
+2. [谢希仁老师的《计算机网络》内容总结](docs/cs-basics/network/谢希仁老师的《计算机网络》内容总结.md)
 
 ### 数据结构
 
@@ -159,7 +160,7 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 
 ### Redis
 
-1. [Redis 常见问题总结](docs/database/redis/redis-all.md)
+1. [Redis 常见问题总结](docs/database/redis/redis知识点&面试题总结.md)
 2. [3种常用的缓存读写策略](docs/database/redis/3-commonly-used-cache-read-and-write-strategies.md)
 
 ## 搜索引擎

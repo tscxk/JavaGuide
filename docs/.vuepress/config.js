@@ -1,10 +1,30 @@
 const { config } = require("vuepress-theme-hope");
 
 module.exports = config({
+  port: "8080",
   title: "JavaGuide",
   description: "Java学习&&面试指南",
   //指定 vuepress build 的输出目录
   dest: "./dist",
+  // 是否开启默认预加载js
+  shouldPrefetch: (file, type) => false,
+  // webpack 配置 https://vuepress.vuejs.org/zh/config/#chainwebpack
+  chainWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      const dateTime = new Date().getTime();
+
+      // 清除js版本号
+      config.output.filename('assets/js/jg-[name].js?v=' + dateTime).end();
+      config.output.chunkFilename('assets/js/jg-[name].js?v=' + dateTime).end();
+
+      // 清除css版本号
+      config.plugin('mini-css-extract-plugin').use(require('mini-css-extract-plugin'), [{
+        filename: 'assets/css/[name].css?v=' + dateTime,
+        chunkFilename: 'assets/css/[name].css?v=' + dateTime
+      }]).end();
+
+    }
+  },
   head: [
     [
       "script",
@@ -39,12 +59,8 @@ module.exports = config({
     }
   },
   themeConfig: {
-    logo: "/logo.png",
-    hostname: "https://javaguide.cn/",
-    author: "Guide哥",
-    repo: "https://github.com/Snailclimb/JavaGuide",
-    editLinks: true,
-    docsDir: 'docs',
+    logo: "/logo.png", hostname: "https://javaguide.cn/", author: "Guide哥", repo: "https://github.com/Snailclimb/JavaGuide",
+    editLinks: true, docsDir: 'docs',
     nav: [
       { text: "Java面试指南", icon: "java", link: "/", },
       { text: "Java面试指北", icon: "java", link: "https://www.yuque.com/docs/share/f37fc804-bfe6-4b0d-b373-9c462188fec7?#%20%E3%80%8A%E3%80%8AJava%E9%9D%A2%E8%AF%95%E8%BF%9B%E9%98%B6%E6%8C%87%E5%8C%97%20%20%E6%89%93%E9%80%A0%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%8A%80%E6%9C%AF%E7%AB%9E%E4%BA%89%E5%8A%9B%E3%80%8B%E3%80%8B", },
@@ -93,9 +109,13 @@ module.exports = config({
       ],
       '/high-quality-technical-articles/': [
         {
-          title: "面试", icon: "mianshixinxi-02", prefix: "interview/",
-          children: ["the-experience-and-thinking-of-an-interview-experienced-by-an-older-programmer", "technical-preliminary-preparation"]
+          title: "面试", icon: "mianshixinxi-02", prefix: "interview/", collapsable: false,
+          children: ["the-experience-and-thinking-of-an-interview-experienced-by-an-older-programmer", "technical-preliminary-preparation", "screen-candidates-for-packaging"],
         },
+        {
+          title: "个人经历", icon: "zuozhe", prefix: "personal-experience/", collapsable: false,
+          children: ["two-years-of-back-end-develop--experience-in-didi&toutiao"]
+        }
       ],
       '/idea-tutorial/':
         [
@@ -128,7 +148,7 @@ module.exports = config({
               "java基础知识总结",
               {
                 title: "重要知识点",
-                children: ["反射机制详解", "代理模式详解", "io模型详解"],
+                children: ["why-there-only-value-passing-in-java", "反射机制详解", "代理模式详解", "io模型详解"],
               },],
           },
           {
